@@ -16,4 +16,14 @@ router.get("/user/:id", async(req, res) => {
     res.send(user)
 })
 
+router.put("/user/:id", async(req, res) => {
+    const user = await User.findByIdAndUpdate(req.params.id, req.body)
+    res.send(user)
+})
+
+router.delete("/user/:id", async(req, res) => {
+    const user = await User.findByIdAndDelete(req.params.id)
+    res.send(user)
+})
+
 module.exports = router;
